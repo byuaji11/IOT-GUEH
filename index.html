@@ -66,6 +66,7 @@
             border-radius: 50%;
             filter: blur(40px);
             opacity: 0.6;
+            animation: pulseGlow 6s ease-in-out infinite alternate;
         }
 
         header::before {
@@ -105,6 +106,7 @@
             font-weight: 700;
             border: 1px solid rgba(125, 211, 252, 0.4);
             letter-spacing: 0.5px;
+            animation: fadeUp 0.8s ease-out;
         }
 
         h1 {
@@ -113,6 +115,7 @@
             line-height: 1.05;
             color: var(--white);
             letter-spacing: -1px;
+            animation: fadeUp 0.9s ease-out;
         }
 
         .highlight {
@@ -127,6 +130,7 @@
             max-width: 640px;
             color: var(--text-light);
             font-size: 1.08rem;
+            animation: fadeUp 1s ease-out;
         }
 
         .header-actions {
@@ -134,6 +138,7 @@
             flex-wrap: wrap;
             gap: 16px;
             margin-top: 28px;
+            animation: fadeUp 1.1s ease-out;
         }
 
         .btn {
@@ -142,10 +147,25 @@
             border-radius: 999px;
             font-weight: 700;
             transition: transform 0.2s ease, box-shadow 0.2s ease;
+            position: relative;
+            overflow: hidden;
         }
 
         .btn:hover {
-            transform: translateY(-2px);
+            transform: translateY(-2px) scale(1.02);
+        }
+
+        .btn::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(120deg, transparent, rgba(255,255,255,0.35), transparent);
+            transform: translateX(-120%);
+            transition: transform 0.6s ease;
+        }
+
+        .btn:hover::before {
+            transform: translateX(120%);
         }
 
         .btn-primary {
@@ -168,6 +188,7 @@
             padding: 24px;
             backdrop-filter: blur(10px);
             box-shadow: 0 20px 50px rgba(15, 23, 42, 0.35);
+            animation: floatCard 5s ease-in-out infinite;
         }
 
         .mini-widget {
@@ -177,6 +198,7 @@
             padding: 18px 20px;
             margin-bottom: 16px;
             color: var(--white);
+            animation: fadeUp 1.2s ease-out;
         }
 
         .mini-widget strong {
@@ -199,6 +221,15 @@
             padding: 16px 10px;
             text-align: center;
             color: var(--white);
+            animation: bounceIn 1.4s ease-out forwards;
+        }
+
+        .stat-box:nth-child(2) {
+            animation-delay: 0.15s;
+        }
+
+        .stat-box:nth-child(3) {
+            animation-delay: 0.3s;
         }
 
         .stat-box strong {
@@ -222,6 +253,7 @@
             padding: 36px 32px;
             margin-bottom: 26px;
             box-shadow: 0 16px 35px rgba(15, 23, 42, 0.08);
+            animation: fadeUp 0.9s ease-out;
         }
 
         h2 {
@@ -255,10 +287,11 @@
             border-radius: 18px;
             padding: 22px 20px;
             transition: transform 0.2s ease, box-shadow 0.2s ease;
+            animation: riseIn 0.9s ease-out;
         }
 
         .card:hover {
-            transform: translateY(-4px);
+            transform: translateY(-4px) scale(1.01);
             box-shadow: 0 14px 30px rgba(37, 99, 235, 0.08);
         }
 
@@ -286,6 +319,11 @@
             border-radius: 18px;
             overflow: hidden;
             box-shadow: 0 14px 30px rgba(15, 23, 42, 0.06);
+            animation: floatImage 5s ease-in-out infinite;
+        }
+
+        .image-box:nth-child(2) {
+            animation-delay: 0.8s;
         }
 
         .image-box img {
@@ -345,6 +383,7 @@
             border-radius: 999px;
             font-weight: 700;
             box-shadow: 0 10px 30px rgba(56, 189, 248, 0.25);
+            animation: pulseButton 2.4s ease-in-out infinite;
         }
 
         footer {
@@ -352,6 +391,83 @@
             padding: 30px 20px 50px;
             color: rgba(255, 255, 255, 0.7);
             font-size: 0.9rem;
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(18px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes floatCard {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @keyframes pulseGlow {
+            from {
+                opacity: 0.4;
+                transform: scale(1);
+            }
+            to {
+                opacity: 0.8;
+                transform: scale(1.08);
+            }
+        }
+
+        @keyframes riseIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes bounceIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            60% {
+                opacity: 1;
+                transform: scale(1.05);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes pulseButton {
+            0%, 100% {
+                transform: scale(1);
+                box-shadow: 0 10px 30px rgba(56, 189, 248, 0.25);
+            }
+            50% {
+                transform: scale(1.04);
+                box-shadow: 0 14px 36px rgba(139, 92, 246, 0.35);
+            }
+        }
+
+        @keyframes floatImage {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-8px);
+            }
         }
 
         @media (max-width: 900px) {
