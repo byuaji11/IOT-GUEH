@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | IoT RC Car Arduino Uno</title>
+    <style>
+        :root {
+            --primary: #0ea5e9;
+            --primary-dark: #0284c7;
+            --bg-dark: #0f172a;
+            --bg-light: #f8fafc;
+            --text-dark: #1e293b;
+            --text-light: #64748b;
+        }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+        /* Hero Section */
+        header {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+            border-bottom: 4px solid var(--primary);
+        }
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+        header p {
+            color: #94a3b8;
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 25px auto;
+        }
+        .badge {
+            background-color: rgba(14, 165, 233, 0.2);
+            color: var(--primary);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            border: 1px solid var(--primary);
+        }
+        /* Container Layout */
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        section {
+            background: white;
+            padding: 40px;
+            margin-bottom: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+        h2 {
+            color: var(--bg-dark);
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #e2e8f0;
+            padding-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        /* Grid Feature */
+        .grid-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .card {
+            background: #f1f5f9;
+            padding: 20px;
+            border-radius: 8px;
+            border-top: 4px solid var(--primary);
+            transition: transform 0.2s;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        .card h3 { 
+            margin-bottom: 10px;
+            color: var(--bg-dark);
+        }
+        /* Media / Images Layout */
+        .visual-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .image-box {
+            background: #fff;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            overflow: hidden;
+            text-align: center;
+        }
+        .image-box img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+        }
+        .image-box p {
+            padding: 12px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            background: #f8fafc;
+            color: var(--text-dark);
+        }
+        /* Table Components */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        th, td {
+            text-align: left;
+            padding: 12px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        th {
+            background-color: #f1f5f9;
+            color: var(--bg-dark);
+        }
+        /* Button Download Code */
+        .btn-download {
+            display: inline-block;
+            background-color: #0ea5e9;
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: bold;
+            margin-top: 15px;
+            transition: background 0.2s;
+        }
+        .btn-download:hover {
+            background-color: #0284c7;
+        }
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 2rem;
+            }
+            section {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <span class="badge">IoT & Robotics Project</span>
+        <h1 style="margin-top: 15px;">Smart RC Car Controller</h1>
+        <p>Mobil Remote Control berbasis Arduino Uno yang dikendalikan secara real-time via aplikasi Smartphone.</p>
+    </header>
+
+    <div class="container">
+        <!-- SECTION 1: TENTANG PROYEK -->
+        <section id="overview">
+            <h2>🤖 Tentang Proyek</h2>
+            <p>Proyek ini bertujuan untuk memodifikasi mobil RC konvensional menjadi perangkat pintar berbasis internet/nirkabel. Menggunakan otak utama <strong>Arduino Uno</strong>, sistem menerima data instruksi kemudi secara instan dari aplikasi HP dan meneruskannya ke motor penggerak fisik. Proyek ini mendemonstrasikan implementasi IoT fisik, sistem benam (embedded system), dan otomasi robotik sederhana.</p>
+        </section>
+
+        <!-- SECTION 2: FITUR PROYEK -->
+        <section id="features">
+            <h2>⚡ Fitur Utama</h2>
+            <div class="grid-features">
+                <div class="card">
+                    <h3>📱 HP Kendali Jarak Jauh</h3>
+                    <p>Interface tombol atau giroskop di smartphone memudahkan manuver belok dan kecepatan.</p>
+                </div>
+                <div class="card">
+                    <h3>🌐 Koneksi IoT Instant</h3>
+                    <p>Menggunakan modul nirkabel hemat daya dengan latensi rendah untuk respon pergerakan real-time.</p>
+                </div>
+                <div class="card">
+                    <h3>🔋 Manajemen Daya L298N</h3>
+                    <p>Sistem driver motor DC ganda sanggup menahan lonjakan tegangan baterai secara aman.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3: GAMBAR PROYEK -->
+        <section id="gallery">
+            <h2>📸 Galeri Fisik & Skema</h2>
+            <p>Berikut adalah bentuk fisik rakitan hardware mobil RC beserta gambar skema kabel (wiring diagram) proyek ini:</p>
+            <div class="visual-container">
+                <!-- Gambar 1: Bentuk Fisik Mobil RC Arduino -->
+                <div class="image-box">
+                    <img src="image/mobil-rc.jpg" alt="Bentuk Fisik RC Car Arduino">
+                    <p>Fisik Rakitan Mobil RC IoT</p>
+                </div>
+                <!-- Gambar 2: Skema Fritzing / Diagram Kabel -->
+                <div class="image-box">
+                    <img src="image/skema-rangkaian.jpg" alt="Skema Rangkaian Arduino Uno RC Car">
+                    <p>Skema Rangkaian Elektrik (Fritzing)</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 4: DAFTAR HARDWARE -->
+        <section id="components">
+            <h2>🛠️ Komponen Utama</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Komponen</th>
+                        <th>Fungsi Utama</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Arduino Uno R3</strong></td>
+                        <td>Mikrokontroler utama pemroses logika program kemudi.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Modul Transceiver Nirkabel (Bluetooth/Wi-Fi)</strong></td>
+                        <td>Jembatan penghubung data dari smartphone ke Arduino.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Driver Motor L298N</strong></td>
+                        <td>Mengatur arah putaran dan kecepatan motor DC roda.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Chassis & Roda Mobil Smart Car</strong></td>
+                        <td>Kerangka fisik pembentuk badan mobil RC.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- SECTION 5: DOWNLOAD SOURCE CODE -->
+        <section id="open-source" style="text-align: center;">
+            <h2>💻 Kode Program Arduino</h2>
+            <p>Seluruh source code sketch Arduino (.ino) beserta skema lengkapnya dapat diunduh secara bebas.</p>
+            <a href="source/rc_car_program.ino" download="rc_car_program.ino" class="btn-download">📥 Download Code Arduino (.ino)</a>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 IoT RC Car Project | Dibuat dengan HTML & CSS Murni</p>
+    </footer>
+
+</body>
+</html>
