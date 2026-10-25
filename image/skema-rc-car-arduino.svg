@@ -1,0 +1,151 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="770" viewBox="0 0 1200 770" role="img" aria-labelledby="title desc">
+  <title id="title">Skema RC Car Arduino Uno HC-06 dan PWM</title>
+  <desc id="desc">Diagram rangkaian mobil RC 4WD dengan Arduino Uno, modul HC-06, driver motor L298N dan dua motor DC.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1">
+      <stop offset="0%" stop-color="#f8fafc"/>
+      <stop offset="100%" stop-color="#e2e8f0"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#0f172a" flood-opacity="0.18"/>
+    </filter>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M0,0 L12,6 L0,12 z" fill="#0f172a"/>
+    </marker>
+    <style>
+      .title { font: 700 28px 'Segoe UI', Arial, sans-serif; fill: #0f172a; }
+      .label { font: 600 18px 'Segoe UI', Arial, sans-serif; fill: #0f172a; }
+      .small { font: 600 15px 'Segoe UI', Arial, sans-serif; fill: #334155; }
+      .device { fill: #ffffff; stroke: #0f172a; stroke-width: 2; }
+      .wire { fill: none; stroke: #0f172a; stroke-width: 3; marker-end: url(#arrow); }
+      .wireBlue { fill: none; stroke: #2563eb; stroke-width: 3; }
+      .wireRed { fill: none; stroke: #ef4444; stroke-width: 3; }
+      .wireGreen { fill: none; stroke: #16a34a; stroke-width: 3; }
+      .pin { fill: #f8fafc; stroke: #0f172a; stroke-width: 2; }
+      .chip { fill: #e2e8f0; stroke: #0f172a; stroke-width: 2; }
+      .motor { fill: #fef3c7; stroke: #0f172a; stroke-width: 2; }
+      .battery { fill: #e0f2fe; stroke: #0f172a; stroke-width: 2; }
+      .text-white { fill: #ffffff; font: 700 17px 'Segoe UI', Arial, sans-serif; }
+      .text-blue { fill: #1d4ed8; font: 700 15px 'Segoe UI', Arial, sans-serif; }
+      .text-red { fill: #b91c1c; font: 700 15px 'Segoe UI', Arial, sans-serif; }
+      .text-green { fill: #15803d; font: 700 15px 'Segoe UI', Arial, sans-serif; }
+      .text-purple { fill: #7c3aed; font: 700 15px 'Segoe UI', Arial, sans-serif; }
+    </style>
+  </defs>
+
+  <rect x="0" y="0" width="1200" height="770" fill="url(#bg)"/>
+  <text x="600" y="55" text-anchor="middle" class="title">Skema RC Car 4WD dengan Arduino Uno + HC-06 + PWM</text>
+
+  <!-- Smartphone -->
+  <rect x="70" y="120" width="140" height="260" rx="18" class="device" filter="url(#shadow)"/>
+  <rect x="93" y="150" width="94" height="180" rx="10" fill="#111827"/>
+  <circle cx="140" cy="170" r="10" fill="#38bdf8"/>
+  <rect x="110" y="200" width="60" height="12" rx="6" fill="#f8fafc"/>
+  <rect x="110" y="225" width="60" height="12" rx="6" fill="#f8fafc"/>
+  <rect x="110" y="250" width="60" height="12" rx="6" fill="#f8fafc"/>
+  <text x="140" y="105" text-anchor="middle" class="label">Smartphone</text>
+
+  <!-- HC-06 -->
+  <rect x="290" y="190" width="150" height="120" rx="14" class="device" filter="url(#shadow)"/>
+  <text x="365" y="230" text-anchor="middle" class="label">HC-06</text>
+  <text x="365" y="258" text-anchor="middle" class="small">Bluetooth Module</text>
+  <text x="365" y="286" text-anchor="middle" class="small">TX / RX</text>
+
+  <!-- Arduino Uno -->
+  <rect x="520" y="120" width="260" height="280" rx="18" class="device" filter="url(#shadow)"/>
+  <text x="650" y="165" text-anchor="middle" class="label">Arduino Uno</text>
+  <rect x="545" y="185" width="210" height="180" rx="12" fill="#e2e8f0" stroke="#0f172a" stroke-width="2"/>
+  <circle cx="575" cy="210" r="8" fill="#f59e0b"/>
+  <circle cx="710" cy="210" r="8" fill="#22c55e"/>
+  <text x="575" y="245" class="small">D0 RX</text>
+  <text x="710" y="245" class="small">D1 TX</text>
+  <text x="560" y="300" class="small">PWM D3 / D5</text>
+  <text x="560" y="325" class="small">D8 / D9 / D10 / D11</text>
+  <text x="560" y="350" class="small">GND / 5V</text>
+
+  <!-- L298N -->
+  <rect x="840" y="160" width="250" height="250" rx="18" class="chip" filter="url(#shadow)"/>
+  <text x="965" y="205" text-anchor="middle" class="label">L298N Driver</text>
+  <text x="965" y="232" text-anchor="middle" class="small">Dual H-Bridge</text>
+  <text x="875" y="270" class="text-blue">ENA</text>
+  <text x="875" y="298" class="text-blue">IN1</text>
+  <text x="875" y="326" class="text-blue">IN2</text>
+  <text x="875" y="354" class="text-blue">IN3</text>
+  <text x="875" y="382" class="text-blue">IN4</text>
+  <text x="1015" y="270" class="text-red">ENB</text>
+  <text x="1015" y="298" class="text-red">OUT1</text>
+  <text x="1015" y="326" class="text-red">OUT2</text>
+  <text x="1015" y="354" class="text-red">OUT3</text>
+  <text x="1015" y="382" class="text-red">OUT4</text>
+
+  <!-- Motors -->
+  <g>
+    <rect x="980" y="470" width="120" height="74" rx="12" class="motor"/>
+    <circle cx="1010" cy="530" r="18" fill="#0f172a"/>
+    <circle cx="1070" cy="530" r="18" fill="#0f172a"/>
+    <text x="1040" y="455" text-anchor="middle" class="label">Motor Kanan</text>
+  </g>
+  <g>
+    <rect x="760" y="470" width="120" height="74" rx="12" class="motor"/>
+    <circle cx="790" cy="530" r="18" fill="#0f172a"/>
+    <circle cx="850" cy="530" r="18" fill="#0f172a"/>
+    <text x="820" y="455" text-anchor="middle" class="label">Motor Kiri</text>
+  </g>
+
+  <!-- Battery -->
+  <rect x="520" y="500" width="200" height="120" rx="16" class="battery" filter="url(#shadow)"/>
+  <text x="620" y="548" text-anchor="middle" class="label">Power Supply</text>
+  <text x="620" y="575" text-anchor="middle" class="small">12V / 7.4V</text>
+  <rect x="560" y="470" width="24" height="30" fill="#0f172a"/>
+  <rect x="610" y="470" width="24" height="30" fill="#0f172a"/>
+  <rect x="660" y="470" width="24" height="30" fill="#0f172a"/>
+
+  <!-- Wiring: Smartphone to HC-06 -->
+  <path d="M210 240 L290 240" class="wireBlue"/>
+  <path d="M290 240 L290 250" class="wireBlue"/>
+  <text x="235" y="222" class="text-blue">Bluetooth</text>
+
+  <!-- HC-06 to Arduino -->
+  <path d="M440 240 L520 240" class="wireBlue"/>
+  <text x="455" y="220" class="text-blue">TX → RX</text>
+  <path d="M440 258 L520 258" class="wireGreen"/>
+  <text x="455" y="278" class="text-green">RX → TX</text>
+
+  <!-- Arduino to L298N -->
+  <path d="M780 280 L840 280" class="wireRed"/>
+  <text x="790" y="260" class="text-red">ENA</text>
+  <path d="M780 318 L840 318" class="wireRed"/>
+  <text x="790" y="298" class="text-red">IN1</text>
+  <path d="M780 346 L840 346" class="wireRed"/>
+  <text x="790" y="326" class="text-red">IN2</text>
+  <path d="M780 374 L840 374" class="wireRed"/>
+  <text x="790" y="354" class="text-red">IN3</text>
+  <path d="M780 402 L840 402" class="wireRed"/>
+  <text x="790" y="382" class="text-red">IN4</text>
+
+  <!-- L298N to Motors -->
+  <path d="M1090 410 L1090 470" class="wireGreen"/>
+  <path d="M850 410 L850 470" class="wireGreen"/>
+
+  <!-- Power supply to Arduino and L298N -->
+  <path d="M620 500 L620 470 L540 470" class="wire"/>
+  <path d="M620 500 L620 430 L520 430" class="wire"/>
+  <path d="M965 160 L965 120 L820 120" class="wire"/>
+  <text x="650" y="440" class="label">GND / VCC</text>
+
+  <!-- Power to L298N -->
+  <path d="M720 560 L840 560 L840 410" class="wireRed"/>
+  <text x="750" y="538" class="text-red">12V</text>
+  <path d="M720 580 L760 580 L760 450" class="wire"/>
+  <text x="690" y="600" class="small">Ground</text>
+
+  <!-- Motor labels -->
+  <text x="820" y="620" class="text-purple">M1</text>
+  <text x="1040" y="620" class="text-purple">M2</text>
+
+  <!-- Notes -->
+  <rect x="70" y="600" width="1060" height="110" rx="18" fill="#ffffff" fill-opacity="0.9" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="95" y="640" class="label">Catatan wiring:</text>
+  <text x="95" y="670" class="small">• HC-06 TX → Arduino RX (D0), HC-06 RX → Arduino TX (D1)</text>
+  <text x="95" y="695" class="small">• L298N ENA/ENB dipakai untuk kontrol PWM kecepatan roda</text>
+</svg>
