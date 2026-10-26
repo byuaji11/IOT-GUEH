@@ -691,7 +691,8 @@
     </div>
 
     <header class="hero">
-        <video class="hero-video" autoplay muted loop playsinline poster="image/mobil-rc.jpg">
+        <video class="hero-video" autoplay muted loop playsinline poster="image/mobil-rc.jpg" preload="auto">
+            <source src="video/rc-car-demo.mp4" type="video/mp4" />
             <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" type="video/mp4" />
         </video>
 
@@ -927,6 +928,13 @@
         const lightbox = document.getElementById('lightbox');
         const lightboxImage = document.getElementById('lightboxImage');
         const closeBtn = document.querySelector('.close-btn');
+        const heroVideo = document.querySelector('.hero-video');
+
+        if (heroVideo) {
+            heroVideo.addEventListener('error', function () {
+                this.style.display = 'none';
+            });
+        }
 
         galleryImages.forEach(img => {
             img.addEventListener('click', () => {
