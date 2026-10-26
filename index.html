@@ -283,7 +283,77 @@
             border-radius: 28px;
             padding: 24px;
             box-shadow: var(--shadow);
-            animation: floatCard 5s ease-in-out infinite;
+            overflow: hidden;
+        }
+
+        .race-scene {
+            position: relative;
+            height: 140px;
+            margin-bottom: 18px;
+            overflow: hidden;
+            border-radius: 18px;
+            border: 1px solid rgba(255,255,255,0.09);
+            background: linear-gradient(180deg, #0f172a 0%, #111827 100%);
+        }
+
+        .race-scene::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 20% 20%, rgba(103,232,249,0.18), transparent 30%);
+        }
+
+        .track {
+            position: absolute;
+            inset: auto 0 0 0;
+            height: 58%;
+            background: linear-gradient(180deg, rgba(15, 23, 42, 0.8), rgba(51, 65, 85, 0.9));
+            border-top: 2px solid rgba(148, 163, 184, 0.2);
+            overflow: hidden;
+        }
+
+        .track::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 50%;
+            height: 4px;
+            background: repeating-linear-gradient(
+                to right,
+                rgba(255,255,255,0.8) 0,
+                rgba(255,255,255,0.8) 26px,
+                transparent 26px,
+                transparent 48px
+            );
+            transform: translateY(-50%);
+            animation: roadFlow 1.2s linear infinite;
+        }
+
+        .track::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.18) 100%);
+        }
+
+        .car {
+            position: absolute;
+            bottom: 18px;
+            font-size: 2.4rem;
+            line-height: 1;
+            filter: drop-shadow(0 10px 12px rgba(0,0,0,0.35));
+            animation: carMove 2.8s ease-in-out infinite alternate;
+        }
+
+        .car-red {
+            left: 6%;
+            animation-delay: 0.2s;
+        }
+
+        .car-blue {
+            left: 38%;
+            animation-delay: 0.8s;
         }
 
         .mini-card {
@@ -637,6 +707,17 @@
             50% { transform: translateY(-8px); }
         }
 
+        @keyframes roadFlow {
+            from { background-position-x: 0; }
+            to { background-position-x: 52px; }
+        }
+
+        @keyframes carMove {
+            0% { transform: translateX(0) scale(0.98); }
+            50% { transform: translateX(14px) scale(1.02); }
+            100% { transform: translateX(30px) scale(1); }
+        }
+
         @media (max-width: 900px) {
             .hero-grid,
             .video-wrap {
@@ -727,6 +808,12 @@
             </div>
 
             <div class="hero-panel">
+                <div class="race-scene">
+                    <div class="track"></div>
+                    <div class="car car-red">🏎️</div>
+                    <div class="car car-blue">🚗</div>
+                </div>
+
                 <div class="mini-card">
                     <strong>🚗 Sistem Kendali Cerdas</strong>
                     <small>Real-time control dengan respon cepat dan stabil.</small>
