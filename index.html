@@ -116,9 +116,22 @@
         }
 
         .hero {
-            padding: 72px 0 48px;
             position: relative;
+            padding: 72px 0 48px;
             overflow: hidden;
+            isolation: isolate;
+        }
+
+        .hero-video {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.28;
+            filter: saturate(1.2) contrast(1.08);
+            z-index: 0;
+            pointer-events: none;
         }
 
         .hero::before,
@@ -128,6 +141,7 @@
             border-radius: 50%;
             filter: blur(60px);
             opacity: 0.7;
+            z-index: 1;
         }
 
         .hero::before {
@@ -677,6 +691,10 @@
     </div>
 
     <header class="hero">
+        <video class="hero-video" autoplay muted loop playsinline poster="image/mobil-rc.jpg">
+            <source src="https://cdn.pixabay.com/video/2022/03/30/74077-689777721_large.mp4" type="video/mp4" />
+        </video>
+
         <div class="container hero-grid">
             <div>
                 <div class="eyebrow">IoT & Robotics Project</div>
