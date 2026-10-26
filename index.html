@@ -397,6 +397,87 @@
             line-height: 1.7;
         }
 
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 18px;
+            margin-top: 18px;
+        }
+
+        .process-card {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 22px;
+            padding: 20px 18px;
+        }
+
+        .step-num {
+            display: inline-flex;
+            width: 38px;
+            height: 38px;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--primary-2));
+            color: #07111f;
+            font-weight: 800;
+            margin-bottom: 12px;
+        }
+
+        .process-card h3 {
+            color: var(--white);
+            margin-bottom: 8px;
+            font-size: 1.05rem;
+        }
+
+        .process-card p {
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        .video-wrap {
+            display: grid;
+            grid-template-columns: 1.3fr 0.7fr;
+            gap: 22px;
+            align-items: stretch;
+            margin-top: 18px;
+        }
+
+        .video-box {
+            background: rgba(8, 15, 23, 0.8);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 22px;
+            overflow: hidden;
+            min-height: 320px;
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            min-height: 320px;
+            border: 0;
+            display: block;
+        }
+
+        .video-info {
+            background: linear-gradient(135deg, rgba(103, 232, 249, 0.08), rgba(139, 92, 246, 0.08));
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 22px;
+            padding: 22px 18px;
+            color: var(--muted);
+        }
+
+        .video-info h3 {
+            color: var(--white);
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        .video-info ul {
+            padding-left: 18px;
+            margin-top: 12px;
+        }
+
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -543,7 +624,8 @@
         }
 
         @media (max-width: 900px) {
-            .hero-grid {
+            .hero-grid,
+            .video-wrap {
                 grid-template-columns: 1fr;
                 text-align: center;
             }
@@ -554,6 +636,7 @@
             }
 
             .feature-grid,
+            .process-grid,
             .gallery-grid {
                 grid-template-columns: 1fr;
             }
@@ -585,6 +668,7 @@
             <div class="nav-links">
                 <a href="#overview">Overview</a>
                 <a href="#features">Features</a>
+                <a href="#process">Workflow</a>
                 <a href="#gallery">Gallery</a>
                 <a href="#components">Components</a>
                 <a href="#download" class="nav-btn">Download</a>
@@ -660,6 +744,8 @@
                     Proyek ini bertujuan untuk memodifikasi mobil RC konvensional menjadi perangkat pintar berbasis internet/nirkabel.
                     Menggunakan otak utama <strong>Arduino Uno</strong>, sistem ini dirancang untuk menerima perintah dari smartphone dan
                     mengendalikan gerakan mobil dengan respons cepat, presisi, dan stabilitas yang lebih tinggi.
+                    Selain berfungsi sebagai alat demonstrasi teknologi IoT, proyek ini juga relevan sebagai media pembelajaran
+                    mengenai komunikasi serial, mikrokontroler, pengendalian motor, hingga integrasi perangkat keras dan perangkat lunak secara nyata.
                 </p>
             </section>
 
@@ -686,6 +772,60 @@
                         <div class="feature-icon">🔋</div>
                         <h3>Driver Motor L298N</h3>
                         <p>Sistem driver motor DC ganda mampu menangani lonjakan arus dan memaksimalkan performa mobil RC.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="process" class="section">
+                <div class="section-head">
+                    <h2>🔄 Cara Kerja Sistem</h2>
+                    <p>Alur kerja dari perangkat keras hingga kendali real-time yang digunakan dalam proyek ini.</p>
+                </div>
+
+                <div class="process-grid">
+                    <div class="process-card">
+                        <div class="step-num">1</div>
+                        <h3>Input Aplikasi</h3>
+                        <p>Pengguna mengirim perintah gerak melalui aplikasi atau tombol kendali di smartphone.</p>
+                    </div>
+                    <div class="process-card">
+                        <div class="step-num">2</div>
+                        <h3>Komunikasi Nirkabel</h3>
+                        <p>Data dikirim melalui modul Bluetooth/IoT ke Arduino Uno untuk proses decoding sinyal.</p>
+                    </div>
+                    <div class="process-card">
+                        <div class="step-num">3</div>
+                        <h3>Pengolahan Kontrol</h3>
+                        <p>Arduino memproses sinyal lalu mengatur arah putaran motor melalui driver L298N.</p>
+                    </div>
+                    <div class="process-card">
+                        <div class="step-num">4</div>
+                        <h3>Aktuasi Gerak</h3>
+                        <p>Roda bergerak sesuai mode maju, mundur, belok kiri, kanan, atau berhenti.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="video" class="section">
+                <div class="section-head">
+                    <h2>🎬 Video Terkait IoT</h2>
+                    <p>Contoh video inspiratif yang berkaitan dengan proyek kendaraan pintar berbasis Arduino dan teknologi IoT.</p>
+                </div>
+
+                <div class="video-wrap">
+                    <div class="video-box">
+                        <iframe src="https://www.youtube.com/embed/71o-v1wUNhY" title="Arduino Bluetooth Smart Car Demo" allowfullscreen></iframe>
+                    </div>
+
+                    <div class="video-info">
+                        <h3>Kenapa ini relevan?</h3>
+                        <p>Video ini menggambarkan prinsip yang sama pada proyek kami: kendali kendaraan lewat komunikasi nirkabel, pemrosesan data dengan mikrokontroler, dan integrasi IoT dalam sistem mobil pintar.</p>
+                        <ul>
+                            <li>Bluetooth control</li>
+                            <li>Arduino sebagai otak utama</li>
+                            <li>Motor driver dan mekanika mobil</li>
+                            <li>Konsep Internet of Things</li>
+                        </ul>
                     </div>
                 </div>
             </section>
